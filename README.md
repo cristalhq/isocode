@@ -40,10 +40,10 @@ See examples: [example_test.go](example_test.go).
 
 [MIT License](LICENSE).
 
-[build-img]: https://github.com/cristalhq/acmd/workflows/build/badge.svg
-[build-url]: https://github.com/cristalhq/acmd/actions
-[pkg-img]: https://pkg.go.dev/badge/cristalhq/acmd
-[pkg-url]: https://pkg.go.dev/github.com/cristalhq/acmd
-[version-img]: https://img.shields.io/github/v/release/cristalhq/acmd
-[version-url]: https://github.com/cristalhq/acmd/releases
+[build-img]: https://github.com/cristalhq/isocode/workflows/build/badge.svg
+[build-url]: https://github.com/cristalhq/isocode/actions
+[pkg-img]: https://pkg.go.dev/badge/cristalhq/isocode
+[pkg-url]: https://pkg.go.dev/github.com/cristalhq/isocode
+[version-img]: https://img.shields.io/github/v/release/cristalhq/isocode
+[version-url]: https://github.com/cristalhq/isocode/releases
 
