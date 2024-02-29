@@ -17,3 +17,15 @@ func ExampleCountry() {
 	// Output:
 	// Ukraine 🇺🇦
 }
+
+func ExampleCurrency() {
+	trust, err := isocode.AsCurrency("USD")
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Printf("%s", trust.Name())
+
+	// Output:
+	// United States dollar
+}
