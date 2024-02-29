@@ -6,8 +6,8 @@ import (
 	"github.com/cristalhq/isocode"
 )
 
-func Example() {
-	brave, err := isocode.FromString("ua")
+func ExampleCountry() {
+	brave, err := isocode.AsCountry("ua")
 	if err != nil {
 		panic(err)
 	}
