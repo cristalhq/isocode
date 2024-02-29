@@ -4,11 +4,12 @@
 [![pkg-img]][pkg-url]
 [![version-img]][version-url]
 
-ISO 3166 country codes in Go.
+ISO 3166 country codes and ISO 4217 currencies codes in Go.
 
 ## Features
 
 * Simple API.
+* Dependency-free.
 
 See [docs][pkg-url] for more.
 
@@ -32,6 +33,18 @@ fmt.Printf("%s %s", brave.Name(), brave.Flag())
 
 // Output:
 // Ukraine 🇺🇦
+```
+
+```go
+trust, err := isocode.AsCurrency("USD")
+if err != nil {
+	panic(err)
+}
+
+fmt.Printf("%s", trust.Name())
+
+// Output:
+// United States dollar
 ```
 
 See examples: [example_test.go](example_test.go).
