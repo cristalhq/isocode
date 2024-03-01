@@ -22,14 +22,6 @@ func AsCurrency(code string) (Currency, error) {
 // Currency represents an ISO currency code.
 type Currency int16
 
-type currencyDetails struct {
-	Code    string `json:"code"`
-	Numeric int16  `json:"num"`
-	Digits  int8   `json:"digits"`
-	Name    string `json:"name"`
-	Flag    string `json:"flag"`
-}
-
 // String returns string representation of the code.
 func (c Currency) String() string { return currencies[c].Code }
 
@@ -53,6 +45,14 @@ func (c *Currency) UnmarshalText(b []byte) error {
 	}
 	*c = code
 	return nil
+}
+
+type currencyDetails struct {
+	Code    string `json:"code"`
+	Numeric int16  `json:"num"`
+	Digits  int8   `json:"digits"`
+	Name    string `json:"name"`
+	Flag    string `json:"flag"`
 }
 
 var (
