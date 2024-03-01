@@ -62,6 +62,7 @@ func (c *Country) UnmarshalText(b []byte) error {
 
 // countryDetails represents detailed information related to country code.
 type countryDetails struct {
+	Code   int    `json:"code"`
 	Alpha2 string `json:"alpha2"`
 	Alpha3 string `json:"alpha3"`
 	Flag   string `json:"flag"`

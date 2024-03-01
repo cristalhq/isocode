@@ -1,6 +1,7 @@
 package isocode_test
 
 import (
+	"encoding/json"
 	"fmt"
 
 	"github.com/cristalhq/isocode"
@@ -12,10 +13,12 @@ func ExampleCountry() {
 		panic(err)
 	}
 
-	fmt.Printf("%s %s", brave.Name(), brave.Flag())
+	fmt.Println(brave.Name(), brave.Flag())
+	fmt.Println(toJSON(brave))
 
 	// Output:
 	// Ukraine 🇺🇦
+	// "UA"
 }
 
 func ExampleCurrency() {
@@ -24,8 +27,18 @@ func ExampleCurrency() {
 		panic(err)
 	}
 
-	fmt.Printf("%s", trust.Name())
+	fmt.Println(trust.Name())
+	fmt.Println(toJSON(trust))
 
 	// Output:
 	// United States dollar
+	// "USD"
+}
+
+func toJSON(x any) string {
+	b, err := json.Marshal(x)
+	if err != nil {
+		panic(err)
+	}
+	return string(b)
 }
