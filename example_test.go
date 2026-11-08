@@ -4,41 +4,69 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/cristalhq/isocode"
+	"github.com/cristalhq/isocode/country"
+	"github.com/cristalhq/isocode/currency"
+	"github.com/cristalhq/isocode/language"
 )
 
-func ExampleCountry() {
-	brave, err := isocode.AsCountry("ua")
+func Example_country() {
+	code, err := country.Parse("ua")
 	if err != nil {
 		panic(err)
 	}
 
-	fmt.Println(brave.Name(), brave.Flag())
-	fmt.Println(toJSON(brave))
+	data, err := json.Marshal(code)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(code.Name(), code.Flag())
+	fmt.Println(string(data))
 
 	// Output:
 	// Ukraine 🇺🇦
 	// "UA"
 }
 
-func ExampleCurrency() {
-	trust, err := isocode.AsCurrency("USD")
+func Example_currency() {
+	code, err := currency.Parse("UAH")
 	if err != nil {
 		panic(err)
 	}
 
-	fmt.Println(trust.Name())
-	fmt.Println(toJSON(trust))
+	info, ok := currency.Lookup(code)
+	if !ok {
+		panic("missing currency metadata")
+	}
+
+	data, err := json.Marshal(code)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(info.Name)
+	fmt.Println(string(data))
 
 	// Output:
-	// United States dollar
-	// "USD"
+	// Hryvnia
+	// "UAH"
 }
 
-func toJSON(x any) string {
-	b, err := json.Marshal(x)
+func Example_language() {
+	code, err := language.Parse("ukr")
 	if err != nil {
 		panic(err)
 	}
-	return string(b)
+
+	data, err := json.Marshal(code)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(code.Name(), code.Alpha3())
+	fmt.Println(string(data))
+
+	// Output:
+	// Ukrainian ukr
+	// "uk"
 }
